@@ -1,0 +1,73 @@
+package com.pro.ecommers.springecommers.model;
+
+public class DetalleOrden {
+    // Attributes id nombre cantidad precio total
+
+    private Integer id;
+    private String nombre;
+    private Integer cantidad;
+    private Double precio;
+    private Double total;
+
+    public DetalleOrden() {
+    }
+
+    public DetalleOrden(Integer id, String nombre, Integer cantidad, Double precio, Double total) {
+        this.id = id;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.precio = precio;
+        this.total = total;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
+
+    @Override
+    public String toString() {
+        return "DetalleOrden{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", cantidad=" + cantidad +
+                ", precio=" + precio +
+                ", total=" + total +
+                '}';
+    }
+}
