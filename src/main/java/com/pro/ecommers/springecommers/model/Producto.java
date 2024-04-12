@@ -55,14 +55,6 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public Double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(Double precio) {
-        this.precio = precio;
-    }
-
     public String getImagen() {
         return imagen;
     }
@@ -71,6 +63,17 @@ public class Producto {
         this.imagen = imagen;
     }
 
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
