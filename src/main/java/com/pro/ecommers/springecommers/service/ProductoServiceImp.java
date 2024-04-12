@@ -30,6 +30,6 @@ public class ProductoServiceImp implements ProductoService {
 
     @Override
     public void delete(Integer id) {
-        productoRepository.deleteById(id);
+        productoRepository.deleteById(id );
     }
 }
