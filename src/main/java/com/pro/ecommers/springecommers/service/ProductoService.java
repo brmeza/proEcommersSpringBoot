@@ -9,7 +9,7 @@ public interface ProductoService {
     //definir metodos CRUD para la table producto;
 
     public Producto Save (Producto producto);
-    public Optional<Producto> get(Integer id);//opcional nos la opcion si el objeto que llamamos de la base existe
+    public Optional<Producto> get(Integer id);//opcional nos da opcion si el objeto que llamamos de la base existe
     public void update (Producto producto);
     public  void delete(Integer id);
 
