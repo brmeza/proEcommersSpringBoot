@@ -7,5 +7,6 @@ import java.util.List;
 public interface IOrdenService {
     public Orden save(Orden orden);
     public List<Orden>findAll();
+    String gerararNumeroOrden();
 
 }

@@ -25,7 +25,12 @@ public class OrdenSericeImp implements IOrdenService{
         return ordenRepository.findAll();
     }
 
-    public String generarNumeroOrde(){
+    @Override
+    public String gerararNumeroOrden() {
+        return "";
+    }
+
+    public String generarNumeroOrden(){
         int numero =0;
         String numeroConcatenado="";
         List<Orden> ordenes = findAll();
