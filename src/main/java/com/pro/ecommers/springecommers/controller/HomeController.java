@@ -3,6 +3,8 @@ package com.pro.ecommers.springecommers.controller;
 import com.pro.ecommers.springecommers.model.DetalleOrden;
 import com.pro.ecommers.springecommers.model.Orden;
 import com.pro.ecommers.springecommers.model.Producto;
+import com.pro.ecommers.springecommers.model.Usuario;
+import com.pro.ecommers.springecommers.service.IusuarioServices;
 import com.pro.ecommers.springecommers.service.ProductoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +25,9 @@ public class HomeController {
 
     @Autowired
     private ProductoService productoService;
+
+    @Autowired
+    private IusuarioServices usuarioServices;
 
     //almacernar detalles de la orden
     List<DetalleOrden> detalles = new ArrayList<DetalleOrden>();
@@ -103,7 +108,13 @@ public class HomeController {
     }
 
     @GetMapping("/order")
-    public String order(){
+    public String order(Model model){
+
+        Usuario usuario = usuarioServices.findById(1).get();
+
+        model.addAttribute("cart", detalles);
+        model.addAttribute("orden", orden);
+        model.addAttribute("usuario",usuario);
         return "usuario/resumenorden";
     }
 
