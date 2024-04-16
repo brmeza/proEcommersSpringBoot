@@ -5,7 +5,7 @@ import com.pro.ecommers.springecommers.model.Producto;
 import java.util.List;
 import java.util.Optional;
 
-public interface ProductoService {
+public interface IProductoService {
     //definir metodos CRUD para la table producto;
 
     public Producto Save (Producto producto);

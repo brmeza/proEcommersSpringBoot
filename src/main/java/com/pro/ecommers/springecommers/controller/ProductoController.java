@@ -2,9 +2,8 @@ package com.pro.ecommers.springecommers.controller;
 
 import com.pro.ecommers.springecommers.model.Producto;
 import com.pro.ecommers.springecommers.model.Usuario;
-import com.pro.ecommers.springecommers.service.ProductoService;
+import com.pro.ecommers.springecommers.service.IProductoService;
 import com.pro.ecommers.springecommers.service.UploadFileService;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ public class ProductoController {
     private final Logger LOGGER = LoggerFactory.getLogger(ProductoController.class);
 
     @Autowired
-    private ProductoService productoService;
+    private IProductoService productoService;
 
     @Autowired
     private UploadFileService upload;

@@ -1,7 +1,7 @@
 package com.pro.ecommers.springecommers.controller;
 
 import com.pro.ecommers.springecommers.model.Producto;
-import com.pro.ecommers.springecommers.service.ProductoService;
+import com.pro.ecommers.springecommers.service.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +15,7 @@ import java.util.List;
 public class AdministradorController {
 
     @Autowired
-    private ProductoService productoService;
+    private IProductoService productoService;
 
 
     @GetMapping()
