@@ -50,9 +50,11 @@ public class UsuarioController {
             session.setAttribute("idUsuario",user.get().getId());
             if(user.get().getTipo().equals("ADMIN")){
                 return "redirect:/administrador";
+            }else {
+                return "redirect:/";
             }
         }else {
-            log.info("Usuario mop existe");
+            log.info("Usuario no existe");
         }
         return "redirect:/";
     }
