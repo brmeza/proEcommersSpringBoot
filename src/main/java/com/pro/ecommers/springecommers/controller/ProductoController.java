@@ -3,7 +3,9 @@ package com.pro.ecommers.springecommers.controller;
 import com.pro.ecommers.springecommers.model.Producto;
 import com.pro.ecommers.springecommers.model.Usuario;
 import com.pro.ecommers.springecommers.service.IProductoService;
+import com.pro.ecommers.springecommers.service.IUsuarioServices;
 import com.pro.ecommers.springecommers.service.UploadFileService;
+import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,9 @@ public class ProductoController {
     @Autowired
     private UploadFileService upload;
 
+    @Autowired
+    private IUsuarioServices usuarioServices;
+
     @GetMapping("")
     public String show(Model model){
         model.addAttribute("productos", productoService.findAll());
@@ -39,9 +44,10 @@ public class ProductoController {
     }
 
     @PostMapping("/save")
-    public String Save(Producto producto, @RequestParam("img") MultipartFile file) throws IOException {
+    public String Save(Producto producto, @RequestParam("img") MultipartFile file, HttpSession session) throws IOException {
         LOGGER.info("Este es el objeto producto {}",producto);
-        Usuario u = new Usuario(1,"","","","","","","");
+
+        Usuario u = usuarioServices.findById(Integer.parseInt(session.getAttribute("idUsuario").toString())).get();
         producto.setUsuario(u);
 
         //IMAGEN
@@ -65,7 +71,7 @@ public class ProductoController {
 
     @PostMapping("/update")
     public String update(Producto producto, @RequestParam("img") MultipartFile file ) throws IOException {
-        Producto p= new Producto();
+        Producto p;
         p=productoService.get(producto.getId()).get();
 
         if (file.isEmpty()) { // editamos el producto pero no cambiamos la imagem
