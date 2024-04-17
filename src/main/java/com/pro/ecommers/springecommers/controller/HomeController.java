@@ -6,7 +6,7 @@ import com.pro.ecommers.springecommers.model.Producto;
 import com.pro.ecommers.springecommers.model.Usuario;
 import com.pro.ecommers.springecommers.service.IDetalleOrdenService;
 import com.pro.ecommers.springecommers.service.IOrdenService;
-import com.pro.ecommers.springecommers.service.IusuarioServices;
+import com.pro.ecommers.springecommers.service.IUsuarioServices;
 import com.pro.ecommers.springecommers.service.IProductoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +31,7 @@ public class HomeController {
     private IProductoService productoService;
 
     @Autowired
-    private IusuarioServices usuarioServices;
+    private IUsuarioServices usuarioServices;
 
     @Autowired
     private IOrdenService ordenService;
