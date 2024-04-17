@@ -1,6 +1,8 @@
 package com.pro.ecommers.springecommers.controller;
 
+import com.pro.ecommers.springecommers.model.Orden;
 import com.pro.ecommers.springecommers.model.Usuario;
+import com.pro.ecommers.springecommers.service.IOrdenService;
 import com.pro.ecommers.springecommers.service.IUsuarioServices;
 import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -22,8 +25,9 @@ public class UsuarioController {
 
     @Autowired
     private IUsuarioServices usuarioService;
+
     @Autowired
-    private HttpSession httpSession;
+    private IOrdenService ordenService;
 
     @GetMapping("/registro")
     public String create(){
@@ -66,6 +70,9 @@ public class UsuarioController {
     @GetMapping("/compras")
     public String obtenerCompras(Model model, HttpSession sesion){
         model.addAttribute("sesion", sesion.getAttribute("idUsuario"));
+        Usuario usuario = usuarioService.findById(Integer.parseInt(sesion.getAttribute("idUsuario").toString())).get();
+        List<Orden> ordenes = ordenService.findByUsuario(usuario);
+        model.addAttribute("ordenes",ordenes);
         return "usuario/compras";
 
     }

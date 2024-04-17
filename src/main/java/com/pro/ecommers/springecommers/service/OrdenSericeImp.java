@@ -1,6 +1,7 @@
 package com.pro.ecommers.springecommers.service;
 
 import com.pro.ecommers.springecommers.model.Orden;
+import com.pro.ecommers.springecommers.model.Usuario;
 import com.pro.ecommers.springecommers.repository.IOrdenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,10 +28,6 @@ public class OrdenSericeImp implements IOrdenService{
 
     @Override
     public String gerararNumeroOrden() {
-        return "";
-    }
-
-    public String generarNumeroOrden(){
         int numero =0;
         String numeroConcatenado="";
         List<Orden> ordenes = findAll();
@@ -40,6 +37,7 @@ public class OrdenSericeImp implements IOrdenService{
             numero = 1;
         }else {
             numero= numeros.stream().max(Integer::compare).get();
+            numero++;
         }
 
         if(numero<10){
@@ -54,4 +52,10 @@ public class OrdenSericeImp implements IOrdenService{
         }
         return numeroConcatenado;
     }
+
+    @Override
+    public List<Orden> findByUsuario(Usuario usuario) {
+        return ordenRepository.findByUsuario(usuario);
+    }
+
 }

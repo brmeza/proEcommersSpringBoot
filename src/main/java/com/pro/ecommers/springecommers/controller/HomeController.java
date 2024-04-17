@@ -127,9 +127,7 @@ public class HomeController {
     @GetMapping("/order")
     public String order(Model model, HttpSession session){
 
-
         Usuario usuario = usuarioServices.findById(Integer.parseInt(session.getAttribute("idUsuario").toString())).get();
-
         model.addAttribute("cart", detalles);
         model.addAttribute("orden", orden);
         model.addAttribute("usuario",usuario);
