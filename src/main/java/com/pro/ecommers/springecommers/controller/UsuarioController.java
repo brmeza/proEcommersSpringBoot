@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,8 @@ public class UsuarioController {
 
     @Autowired
     private IUsuarioServices usuarioService;
+    @Autowired
+    private HttpSession httpSession;
 
     @GetMapping("/registro")
     public String create(){
@@ -57,6 +60,14 @@ public class UsuarioController {
             log.info("Usuario no existe");
         }
         return "redirect:/";
+    }
+
+
+    @GetMapping("/compras")
+    public String obtenerCompras(Model model, HttpSession sesion){
+        model.addAttribute("sesion", sesion.getAttribute("idUsuario"));
+        return "usuario/compras";
+
     }
 
 }
