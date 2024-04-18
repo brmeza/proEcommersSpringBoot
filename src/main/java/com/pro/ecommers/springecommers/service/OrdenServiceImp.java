@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class OrdenSericeImp implements IOrdenService{
+public class OrdenServiceImp implements IOrdenService{
 
     @Autowired
     private IOrdenRepository ordenRepository;
