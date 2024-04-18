@@ -27,15 +27,9 @@
 
   <div th:include="usuario/template_usuario.html::header-user" th:unless="${sesion==null}"></div>
 
-    <!-- Page Content -->
-    <div class="container">
+  <img th:src="@{/images/webs.jpg}" class="img-fluid" alt="Responsive image">
 
-      <!-- Jumbotron Header -->
-      <header class="jumbotron my-4">
-        <h1 class="display-3">BANNER Ecommerce 2024</h1>
-        <p class="lead">Tu tienda de productos en Línea</p>
-      </header>
-
+    <div class="container p-5">
       <!-- Page Features -->
       <div class="row text-center">
 
